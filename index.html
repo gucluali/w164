@@ -9,59 +9,72 @@
         :root { --mb-black: #000; --mb-silver: #8e9090; --mb-blue: #003366; --mb-red: #d32f2f; }
         body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
         
-        /* Üst Menü */
+        /* HEADER */
         header { background: var(--mb-black); color: white; padding: 20px 15px; text-align: center; }
         header .owner-name { font-size: 1.1rem; letter-spacing: 4px; color: var(--mb-silver); margin-bottom: 5px; font-weight: bold; text-transform: uppercase; }
         header h1 { margin: 0; font-size: 1.5rem; letter-spacing: 1px; }
         
-        /* Navigasyon */
+        /* MENU */
         .nav-bar { display: flex; justify-content: center; background: #222; padding: 10px 0; flex-wrap: wrap; position: sticky; top: 0; z-index: 1000; }
-        .nav-btn {
-            background: none; border: none; color: #aaa; padding: 10px 20px; 
-            font-size: 16px; cursor: pointer; transition: 0.3s; border-bottom: 3px solid transparent;
-        }
+        .nav-btn { background: none; border: none; color: #aaa; padding: 10px 20px; font-size: 16px; cursor: pointer; transition: 0.3s; border-bottom: 3px solid transparent; }
         .nav-btn:hover, .nav-btn.active { color: white; border-bottom: 3px solid var(--mb-silver); }
 
-        /* İçerik Alanı */
+        /* CONTENT */
         .container { max-width: 900px; margin: 20px auto; padding: 0 15px; }
         .tab-content { display: none; animation: fadeIn 0.5s; }
         .tab-content.active { display: block; }
 
-        /* Kart Tasarımı */
+        /* CARDS */
         .search-box { width: 100%; padding: 15px; font-size: 16px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; margin-bottom: 20px;}
         .card { background: white; padding: 20px; margin-bottom: 15px; border-radius: 5px; border-left: 5px solid var(--mb-black); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .code { color: var(--mb-red); font-weight: bold; font-size: 1.2em; }
         .desc { font-weight: bold; margin: 5px 0; }
         .solution { margin-top: 10px; color: #555; font-size: 0.95em; line-height: 1.6; }
         
-        /* Tablolar */
+        /* TABLE */
         table { width: 100%; border-collapse: collapse; background: white; margin-bottom: 15px; }
         th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
         th { background: #eee; font-weight: bold; color: #444; }
 
-        /* Linkler */
-        a { color: var(--mb-blue); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-
-        /* VIDEO Wrapper */
-        .video-container {
+        /* VIDEO GALLERY (Yeni Teknoloji) */
+        .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 5px;
-            background: #000;
-            margin-top: 10px;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .video-wrapper img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        .video-wrapper:hover img { opacity: 0.5; }
+        .play-btn {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px; color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            pointer-events: none;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             border: 0;
         }
-        .yt-link { display:block; margin-top:5px; font-size:0.8em; color:#666; text-align:right;}
+
+        /* LINKS */
+        a { color: var(--mb-blue); text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
@@ -93,30 +106,46 @@
 
         <div id="tv" class="tab-content">
             <h2>Tamir ve Bakım Videoları</h2>
+            <p style="font-size:0.9rem; color:#666;">Videoları izlemek için üzerine tıklayın.</p>
+
             <div class="card">
-                <div class="desc">🛠️ Servis Işığı Sıfırlama (Assyst Plus Reset)</div>
-                <div class="video-container"><iframe src="https://www.youtube.com/embed/IpQ7z-w_3M4" allowfullscreen></iframe></div>
-                <a href="https://www.youtube.com/watch?v=IpQ7z-w_3M4" target="_blank" class="yt-link">▶️ Video Açılmıyorsa Tıkla</a>
+                <div class="desc">🛠️ Servis Işığı Sıfırlama (Assyst Plus)</div>
+                <div class="video-wrapper" onclick="loadVideo(this, 'IpQ7z-w_3M4')">
+                    <img src="https://img.youtube.com/vi/IpQ7z-w_3M4/hqdefault.jpg" alt="Video Kapak">
+                    <div class="play-btn">▶</div>
+                </div>
             </div>
+
             <div class="card">
                 <div class="desc">⚠️ Arka SAM Beyni Su Alma Sorunu</div>
-                <div class="video-container"><iframe src="https://www.youtube.com/embed/eX5t3c5_wFo" allowfullscreen></iframe></div>
-                <a href="https://www.youtube.com/watch?v=eX5t3c5_wFo" target="_blank" class="yt-link">▶️ Video Açılmıyorsa Tıkla</a>
+                <div class="video-wrapper" onclick="loadVideo(this, 'eX5t3c5_wFo')">
+                    <img src="https://img.youtube.com/vi/eX5t3c5_wFo/hqdefault.jpg" alt="Video Kapak">
+                    <div class="play-btn">▶</div>
+                </div>
             </div>
+
             <div class="card">
                 <div class="desc">🌡️ Klima Paneli Gizli Menü</div>
-                <div class="video-container"><iframe src="https://www.youtube.com/embed/2K8AF-d_H-A" allowfullscreen></iframe></div>
-                <a href="https://www.youtube.com/watch?v=2K8AF-d_H-A" target="_blank" class="yt-link">▶️ Video Açılmıyorsa Tıkla</a>
+                <div class="video-wrapper" onclick="loadVideo(this, '2K8AF-d_H-A')">
+                    <img src="https://img.youtube.com/vi/2K8AF-d_H-A/hqdefault.jpg" alt="Video Kapak">
+                    <div class="play-btn">▶</div>
+                </div>
             </div>
+
             <div class="card">
                 <div class="desc">⚙️ Airmatic Kompresör Değişimi</div>
-                <div class="video-container"><iframe src="https://www.youtube.com/embed/C6q55X-EiwQ" allowfullscreen></iframe></div>
-                <a href="https://www.youtube.com/watch?v=C6q55X-EiwQ" target="_blank" class="yt-link">▶️ Video Açılmıyorsa Tıkla</a>
+                <div class="video-wrapper" onclick="loadVideo(this, 'C6q55X-EiwQ')">
+                    <img src="https://img.youtube.com/vi/C6q55X-EiwQ/hqdefault.jpg" alt="Video Kapak">
+                    <div class="play-btn">▶</div>
+                </div>
             </div>
+
             <div class="card">
                 <div class="desc">🛢️ OM642 Yağ Soğutucu (Oil Cooler) Tamiri</div>
-                <div class="video-container"><iframe src="https://www.youtube.com/embed/8nvzOq4eKqU" allowfullscreen></iframe></div>
-                <a href="https://www.youtube.com/watch?v=8nvzOq4eKqU" target="_blank" class="yt-link">▶️ Video Açılmıyorsa Tıkla</a>
+                <div class="video-wrapper" onclick="loadVideo(this, '8nvzOq4eKqU')">
+                    <img src="https://img.youtube.com/vi/8nvzOq4eKqU/hqdefault.jpg" alt="Video Kapak">
+                    <div class="play-btn">▶</div>
+                </div>
             </div>
         </div>
 
@@ -136,29 +165,32 @@
             <h2>Servis ve Adaptasyon Sıfırlama</h2>
             
             <div class="card" style="border-left-color: #007bff;">
-                <div class="desc">🔧 Servis Işığı Sıfırlama (Assyst Plus) - Adım Adım</div>
+                <div class="desc" style="font-size:1.2rem;">🔧 Servis Işığı Sıfırlama (Assyst Plus)</div>
                 <div class="solution">
-                    <ol style="margin-left: 15px; padding-left: 0;">
-                        <li><strong>Adım 1:</strong> Anahtarı kontağa takın ve <strong>1. konuma</strong> çevirin (Göstergede SRS ışığı yanmalı).</li>
-                        <li><strong>Adım 2:</strong> Direksiyonun solundaki tuşlarla ekranda <strong>Kilometre (KM)</strong> sayacını görün.</li>
-                        <li><strong>Adım 3:</strong> Gösterge panelinin sağındaki <strong>'R' (Reset)</strong> tuşuna <strong>3 kez hızlıca</strong> basın. Bir "Bip" sesi duyacaksınız ve ekranda Akü Voltajı (örn: UB: 12.4V) görünecek.</li>
-                        <li><strong>Adım 4:</strong> Direksiyonun solundaki <strong>'Aşağı Ok'</strong> tuşuna basarak <strong>"Service Menu"</strong> seçeneğine gelin.</li>
-                        <li><strong>Adım 5:</strong> Direksiyonun solundaki <strong>'- ve +'</strong> tuşlarını kullanarak en alttaki <strong>"Confirmation"</strong> (Onay) satırına inin.</li>
-                        <li><strong>Adım 6:</strong> Sağdaki menü tuşuna basıp içine girin ve <strong>"Full Service"</strong> seçeneğini onaylayın (Service Confirmed yazar).</li>
-                        <li><strong>Sonuç:</strong> Kontağı kapatın. Servis sayacı 15.000 KM / 365 Gün olarak sıfırlanmıştır.</li>
+                    <p><strong>Önemli:</strong> Tüm kapıların kapalı olduğundan emin olun.</p>
+                    <ol style="margin-left:20px; padding:0;">
+                        <li style="margin-bottom:10px;">Anahtarı kontağa takın ve <strong>1. Konuma</strong> çevirin (Gösterge ışıkları yanmaz, sadece SRS yanar).</li>
+                        <li style="margin-bottom:10px;">Direksiyonun <strong>SOL</strong> tarafındaki tuşları kullanarak ekranda <strong>Kilometre (KM)</strong> sayacını görüntüleyin.</li>
+                        <li style="margin-bottom:10px;">Gösterge panelinin <strong>SAĞ</strong> tarafındaki plastik <strong>'R' (Reset)</strong> tuşuna <strong>3 kez hızlıca</strong> basın.</li>
+                        <li style="margin-bottom:10px;">Bir "Bip" sesi duyacaksınız ve ekranda <strong>Akü Voltajı</strong> (örn: UB: 12.4V) belirecek.</li>
+                        <li style="margin-bottom:10px;">Şimdi direksiyonun SOL tarafındaki <strong>'Aşağı Ok'</strong> tuşuna basın. Ekranda <strong>"Service Menu"</strong> yazısını göreceksiniz.</li>
+                        <li style="margin-bottom:10px;">Direksiyonun SOL tarafındaki <strong>'- ve +'</strong> tuşlarını kullanarak <strong>"Confirmation"</strong> (Onay) satırına gelin ve SAĞ menü tuşuna basarak girin.</li>
+                        <li style="margin-bottom:10px;"><strong>"Full Service"</strong> seçeneğini seçin ve onaylayın. Ekranda "Service Confirmed" yazısı çıkacaktır.</li>
+                        <li>Kontağı kapatın. İşlem tamamlandı.</li>
                     </ol>
                 </div>
             </div>
 
             <div class="card" style="border-left-color: #007bff;">
-                <div class="desc">🪟 Cam ve Sunroof Resetleme (Akü Değişimi Sonrası)</div>
+                <div class="desc" style="font-size:1.2rem;">🪟 Cam ve Sunroof Resetleme</div>
                 <div class="solution">
-                    Eğer camlar tek dokunuşla (Auto) kapanmıyorsa:
-                    <ol style="margin-left: 15px; padding-left: 0;">
-                        <li>İlgili camın tuşuna basılı tutarak camı tamamen <strong>kapatın</strong>.</li>
-                        <li>Cam kapandıktan sonra parmağınızı tuştan çekmeyin, <strong>2 saniye daha</strong> basılı tutun.</li>
-                        <li>Sonra camı tamamen <strong>açın</strong> ve açıldıktan sonra yine <strong>2 saniye</strong> basılı tutun.</li>
-                        <li>Bu işlemi 4 cam ve Sunroof için tek tek yapın.</li>
+                    <p>Akü değişimi sonrası camlar tek dokunuşla kapanmıyorsa:</p>
+                    <ol style="margin-left:20px; padding:0;">
+                        <li style="margin-bottom:10px;">İlgili camın tuşuna basılı tutarak camı tamamen <strong>kapatın</strong>.</li>
+                        <li style="margin-bottom:10px;">Cam tamamen kapandığında parmağınızı tuştan çekmeyin, <strong>2 saniye daha</strong> çekili tutmaya devam edin.</li>
+                        <li style="margin-bottom:10px;">Şimdi camı tamamen <strong>açın</strong>.</li>
+                        <li style="margin-bottom:10px;">Cam tamamen açıldığında yine tuşu bırakmayın, <strong>2 saniye daha</strong> basılı tutun.</li>
+                        <li>Bu işlemi 4 cam ve Sunroof için tek tek uygulayın.</li>
                     </ol>
                 </div>
             </div>
@@ -188,7 +220,7 @@
                     <strong>📞 Tel:</strong> <a href="tel:+905373108922">+90 537 310 89 22</a><br>
                     <br>
                     <iframe width="100%" height="250" frameborder="0" style="border:0" src="https://maps.google.com/maps?q=Premium+Servis+İstanbul+Beylikdüzü&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-                    <br><a href="https://maps.google.com/?q=Premium+Servis+İstanbul" target="_blank" style="color:#d32f2f; font-weight:bold;">➤ Haritada Yol Tarifi Al</a>
+                    <br><a href="https://maps.google.com/?q=Premium+Servis+İstanbul" target="_blank">➤ Haritada Yol Tarifi Al</a>
                 </div>
             </div>
         </div>
@@ -196,7 +228,7 @@
     </div>
 
     <script>
-        // --- GÖMÜLÜ VERİTABANI ---
+        // --- VERİTABANI ---
         const database = [
           { "code": "P0300", "description": "Rastgele/Çoklu Silindirde Tekleme", "solution": "Benzinli: Buji/Bobin/MAF. Dizel: Enjektör veya Kompresyon.", "category": "Motor" },
           { "code": "P0016", "description": "Krank-Eksantrik Korelasyon Hatası (Bank 1)", "solution": "⚠️ KRİTİK: M272/M273 motorlarda Denge Mili (Balance Shaft) dişlisi aşınması.", "category": "Motor (Kronik)" },
@@ -210,25 +242,25 @@
           { "code": "Rear SAM", "description": "Arka Beyin Su Alma", "solution": "Stop lambası contalarından su girer. Beyin temizlenmeli, contalar değişmeli.", "category": "Elektronik" }
         ];
 
-        // --- SAYFA YÜKLENİNCE ---
-        window.onload = function() {
-            renderList(database); 
-        };
+        window.onload = function() { renderList(database); };
 
-        // --- TAB DEĞİŞTİRME ---
+        // TAB FONKSİYONU
         function openTab(evt, tabName) {
             var i, x, btn;
             x = document.getElementsByClassName("tab-content");
             for (i = 0; i < x.length; i++) { x[i].style.display = "none"; }
-            
             btn = document.getElementsByClassName("nav-btn");
             for (i = 0; i < btn.length; i++) { btn[i].className = btn[i].className.replace(" active", ""); }
-            
             document.getElementById(tabName).style.display = "block";
             if(evt) evt.currentTarget.className += " active";
         }
 
-        // --- ARAMA MOTORU ---
+        // VİDEO YÜKLEME FONKSİYONU (TIKLAYINCA AÇILIR)
+        function loadVideo(wrapper, videoId) {
+            wrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+        }
+
+        // ARAMA
         const searchInput = document.getElementById('searchInput');
         const resultsDiv = document.getElementById('results');
 
