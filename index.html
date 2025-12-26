@@ -6,7 +6,7 @@
     <title>Mercedes W164 Teknik Rehber</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --mb-black: #000; --mb-silver: #8e9090; --mb-blue: #003366; }
+        :root { --mb-black: #000; --mb-silver: #8e9090; --mb-blue: #003366; --mb-red: #d32f2f; }
         body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
         
         /* Üst Menü */
@@ -30,7 +30,7 @@
         /* Arama Kutusu ve Kartlar */
         .search-box { width: 100%; padding: 15px; font-size: 16px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; margin-bottom: 20px;}
         .card { background: white; padding: 20px; margin-bottom: 15px; border-radius: 5px; border-left: 5px solid var(--mb-black); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .code { color: #d32f2f; font-weight: bold; font-size: 1.2em; }
+        .code { color: var(--mb-red); font-weight: bold; font-size: 1.2em; }
         .desc { font-weight: bold; margin: 5px 0; }
         .solution { margin-top: 10px; color: #555; font-size: 0.95em; line-height: 1.5; }
         
@@ -38,6 +38,10 @@
         table { width: 100%; border-collapse: collapse; background: white; }
         th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
         th { background: #eee; }
+
+        /* Linkler */
+        a { color: var(--mb-blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
@@ -55,6 +59,7 @@
         <button class="nav-btn" onclick="openTab('specs')">Sıvı & Bakım</button>
         <button class="nav-btn" onclick="openTab('reset')">Sıfırlama (Reset)</button>
         <button class="nav-btn" onclick="openTab('fuses')">Sigortalar</button>
+        <button class="nav-btn" onclick="openTab('services')">Servislerim</button>
     </div>
 
     <div class="container">
@@ -116,6 +121,33 @@
                 <div class="solution">
                     <strong>Çakmaklık (Ön):</strong> Motor bölümü No: 43 veya Bagaj No: 71 (Yıla göre değişir)<br>
                     <strong>Airmatic Kompresör:</strong> Motor Bölümü - f108 (40A Büyük Sigorta)
+                </div>
+            </div>
+        </div>
+
+        <div id="services" class="tab-content">
+            <h2>Özel Servis ve Yedek Parça</h2>
+            
+            <div class="card" style="border-left-color: #d32f2f;">
+                <div class="code" style="color:#000;">Premium Servis İstanbul</div>
+                <div class="desc">Mercedes-Benz Özel Servisi</div>
+                <div class="solution" style="line-height: 1.8;">
+                    <strong>📍 Adres:</strong> Beysan San. Sit, Yakuplu, Birlik Cd. No:12, 34524 Beylikdüzü/İstanbul<br>
+                    <strong>📞 Telefon:</strong> <a href="tel:+905373108922">+90 537 310 89 22</a><br>
+                    <strong>🌐 Web:</strong> <a href="http://www.premiummercedes.com/" target="_blank">www.premiummercedes.com</a>
+                    <br><br>
+                    <iframe 
+                        width="100%" 
+                        height="300" 
+                        frameborder="0" 
+                        style="border:0; border-radius: 5px;" 
+                        src="https://maps.google.com/maps?q=Premium+Servis+İstanbul+Beylikdüzü&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        allowfullscreen>
+                    </iframe>
+                    <br>
+                    <a href="https://maps.google.com/?q=Premium+Servis+İstanbul" target="_blank" style="display:inline-block; margin-top:10px; text-decoration:none; color:#d32f2f; font-weight:bold;">
+                        ➤ Google Haritalar'da Yol Tarifi Al
+                    </a>
                 </div>
             </div>
         </div>
