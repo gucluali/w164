@@ -3,55 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercedes W164 Hata Kodları</title>
+    <title>Mercedes W164 Teknik Rehber</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #f4f4f4; }
-        .search-box { width: 100%; padding: 15px; font-size: 18px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px; }
-        .card { background: white; padding: 20px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        :root { --mb-black: #000; --mb-silver: #8e9090; --mb-blue: #003366; }
+        body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
+        
+        /* Üst Menü */
+        header { background: var(--mb-black); color: white; padding: 15px; text-align: center; }
+        header h1 { margin: 0; font-size: 1.5rem; letter-spacing: 1px; }
+        
+        /* Navigasyon Butonları */
+        .nav-bar { display: flex; justify-content: center; background: #222; padding: 10px 0; flex-wrap: wrap; }
+        .nav-btn {
+            background: none; border: none; color: #aaa; padding: 10px 20px; 
+            font-size: 16px; cursor: pointer; transition: 0.3s; border-bottom: 3px solid transparent;
+        }
+        .nav-btn:hover, .nav-btn.active { color: white; border-bottom: 3px solid var(--mb-silver); }
+
+        /* İçerik Alanları */
+        .container { max-width: 900px; margin: 20px auto; padding: 0 15px; }
+        .tab-content { display: none; animation: fadeIn 0.5s; }
+        .tab-content.active { display: block; }
+
+        /* Arama Kutusu ve Kartlar */
+        .search-box { width: 100%; padding: 15px; font-size: 16px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; margin-bottom: 20px;}
+        .card { background: white; padding: 20px; margin-bottom: 15px; border-radius: 5px; border-left: 5px solid var(--mb-black); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .code { color: #d32f2f; font-weight: bold; font-size: 1.2em; }
-        .desc { font-weight: bold; margin-top: 5px; }
-        .solution { margin-top: 10px; color: #555; }
+        .desc { font-weight: bold; margin: 5px 0; }
+        .solution { margin-top: 10px; color: #555; font-size: 0.95em; line-height: 1.5; }
+        
+        /* Teknik Tablo */
+        table { width: 100%; border-collapse: collapse; background: white; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background: #eee; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
-    <h1>Mercedes W164 (ML) Arıza Rehberi</h1>
-    <input type="text" id="searchInput" class="search-box" placeholder="Hata kodu ara (Örn: P0300)...">
-    <div id="results"></div>
+    <header>
+        <h1>MERCEDES-BENZ W164 (ML)</h1>
+        <p style="margin:5px 0 0 0; font-size:0.9rem; color:#ccc;">Teknik Veri Bankası & Arıza Rehberi</p>
+    </header>
+
+    <div class="nav-bar">
+        <button class="nav-btn active" onclick="openTab('codes')">Arıza Kodları</button>
+        <button class="nav-btn" onclick="openTab('specs')">Sıvı & Bakım</button>
+        <button class="nav-btn" onclick="openTab('reset')">Sıfırlama (Reset)</button>
+        <button class="nav-btn" onclick="openTab('fuses')">Sigortalar</button>
+    </div>
+
+    <div class="container">
+        
+        <div id="codes" class="tab-content active">
+            <h2>OBD & Hata Kodu Arama</h2>
+            <input type="text" id="searchInput" class="search-box" placeholder="Hata kodu ara (Örn: P0300, Airmatic)...">
+            <div id="results"></div>
+        </div>
+
+        <div id="specs" class="tab-content">
+            <h2>Sıvı Kapasiteleri ve Onaylı Yağlar</h2>
+            <table>
+                <tr><th>Parça</th><th>Kapasite</th><th>MB Onayı (Spec)</th></tr>
+                <tr><td>Motor Yağı (Dizel V6)</td><td>8.5 Litre</td><td>MB 229.51 / 229.52</td></tr>
+                <tr><td>Motor Yağı (Benzin V6/V8)</td><td>8.0 - 8.5 Litre</td><td>MB 229.5</td></tr>
+                <tr><td>Şanzıman (7G-Tronic)</td><td>9.0 Litre (Tam) / 5.5 Litre (Değişim)</td><td>MB 236.14 (Kırmızı) / 236.15 (Mavi)</td></tr>
+                <tr><td>Soğutma Sıvısı (Antifriz)</td><td>9.5 - 12 Litre</td><td>MB 325.0 (Mavi/Yeşil)</td></tr>
+                <tr><td>Fren Hidroliği</td><td>-</td><td>DOT 4 Plus</td></tr>
+            </table>
+            <p style="margin-top:10px; font-size:0.9em; color:#666;">* Not: Şanzıman yağı rengi (Kırmızı veya Mavi) karterdeki taşma borusunun rengine göre değişir.</p>
+        </div>
+
+        <div id="reset" class="tab-content">
+            <h2>Servis ve Adaptasyon Sıfırlama</h2>
+            
+            <div class="card" style="border-left-color: #007bff;">
+                <div class="desc">🔧 Servis Işığı Sıfırlama (Assyst Plus)</div>
+                <div class="solution">
+                    1. Kontak 1. konuma getirilir (Kilometre göstergesi görünmeli).<br>
+                    2. Direksiyondaki sağ tuş ile "Trip" (Km) menüsüne gel.<br>
+                    3. Göstergedeki "R" (Reset) tuşuna 3 defa hızlıca bas. "Bip" sesi duyulur ve Voltaj menüsü gelir.<br>
+                    4. Direksiyon sol tuşları ile "Service Menu"ye gel ve onayla.<br>
+                    5. "Confirmation" -> "Full Service" seçeneğini seç.
+                </div>
+            </div>
+
+            <div class="card" style="border-left-color: #007bff;">
+                <div class="desc">🪟 Cam ve Sunroof Resetleme</div>
+                <div class="solution">
+                    Akü değişiminden sonra camlar tek tuşla kapanmıyorsa:<br>
+                    1. Camı kapatma tuşuna basılı tutarak tamamen kapat.<br>
+                    2. Kapandıktan sonra tuşu bırakma, 2 saniye daha çekili tut.<br>
+                    3. Aynısını açma yönünde yap. Her cam için tekrarla.
+                </div>
+            </div>
+        </div>
+
+        <div id="fuses" class="tab-content">
+            <h2>Sigorta Şeması ve Konumları</h2>
+            <p>W164 modelinde 3 ana sigorta kutusu bulunur:</p>
+            <ul>
+                <li><strong>Motor Bölümü:</strong> Sağ tarafta, kaput altında. (Motor, Klima, Korna)</li>
+                <li><strong>Bagaj Bölümü:</strong> Sağ döşeme kapağının arkasında. (Airmatic, Koltuklar, Bagaj kapağı)</li>
+                <li><strong>Ön Konsol:</strong> Sağ yolcu tarafı göğüs yan kapağında. (İç aydınlatma, Radyo)</li>
+            </ul>
+            <div class="card">
+                <div class="desc">⚠️ Kritik Sigortalar</div>
+                <div class="solution">
+                    <strong>Çakmaklık (Ön):</strong> Motor bölümü No: 43 veya Bagaj No: 71 (Yıla göre değişir)<br>
+                    <strong>Airmatic Kompresör:</strong> Motor Bölümü - f108 (40A Büyük Sigorta)
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     <script>
-        // Veriyi çek ve listele
-        let database = [];
+        // TAB DEĞİŞTİRME FONKSİYONU
+        function openTab(tabName) {
+            var i;
+            var x = document.getElementsByClassName("tab-content");
+            var btn = document.getElementsByClassName("nav-btn");
+            
+            for (i = 0; i < x.length; i++) { x[i].style.display = "none"; }
+            for (i = 0; i < btn.length; i++) { btn[i].classList.remove("active"); }
+            
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.classList.add("active");
+        }
 
-        // data.json dosyasından veriyi okuma
+        // ARIZA KODLARI VERİ ÇEKME (Aynı kalacak)
         fetch('data.json')
             .then(response => response.json())
             .then(data => {
-                database = data;
-                renderList(database);
-            });
+                const resultsDiv = document.getElementById('results');
+                const searchInput = document.getElementById('searchInput');
 
-        const searchInput = document.getElementById('searchInput');
-        const resultsDiv = document.getElementById('results');
+                function renderList(items) {
+                    if(items.length === 0) {
+                        resultsDiv.innerHTML = '<p style="color:#777;">Kayıt bulunamadı.</p>';
+                        return;
+                    }
+                    resultsDiv.innerHTML = items.map(item => `
+                        <div class="card">
+                            <div class="code">${item.code} <span style="font-size:0.7em; color:#999; float:right;">${item.category || ''}</span></div>
+                            <div class="desc">${item.description}</div>
+                            <div class="solution">💡 ${item.solution}</div>
+                        </div>
+                    `).join('');
+                }
 
-        // Arama Fonksiyonu
-        searchInput.addEventListener('input', (e) => {
-            const term = e.target.value.toUpperCase();
-            const filtered = database.filter(item => 
-                item.code.includes(term) || item.description.toUpperCase().includes(term)
-            );
-            renderList(filtered);
-        });
+                renderList(data); // İlk yüklemede hepsini göster
 
-        function renderList(items) {
-            resultsDiv.innerHTML = items.map(item => `
-                <div class="card">
-                    <div class="code">${item.code}</div>
-                    <div class="desc">${item.description}</div>
-                    <div class="solution">💡 Çözüm: ${item.solution}</div>
-                </div>
-            `).join('');
-        }
+                searchInput.addEventListener('input', (e) => {
+                    const term = e.target.value.toUpperCase();
+                    const filtered = data.filter(item => 
+                        item.code.includes(term) || 
+                        item.description.toUpperCase().includes(term) ||
+                        item.solution.toUpperCase().includes(term)
+                    );
+                    renderList(filtered);
+                });
+            })
+            .catch(error => console.error('Veri okuma hatası:', error));
     </script>
 </body>
 </html>
