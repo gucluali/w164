@@ -32,7 +32,7 @@
         .card { background: white; padding: 20px; margin-bottom: 15px; border-radius: 5px; border-left: 5px solid var(--mb-black); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .code { color: var(--mb-red); font-weight: bold; font-size: 1.2em; }
         .desc { font-weight: bold; margin: 5px 0; }
-        .solution { margin-top: 10px; color: #555; font-size: 0.95em; line-height: 1.5; }
+        .solution { margin-top: 10px; color: #555; font-size: 0.95em; line-height: 1.6; }
         
         /* Tablolar */
         table { width: 100%; border-collapse: collapse; background: white; margin-bottom: 15px; }
@@ -61,6 +61,7 @@
             height: 100%;
             border: 0;
         }
+        .yt-link { display:block; margin-top:5px; font-size:0.8em; color:#666; text-align:right;}
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
@@ -95,22 +96,27 @@
             <div class="card">
                 <div class="desc">🛠️ Servis Işığı Sıfırlama (Assyst Plus Reset)</div>
                 <div class="video-container"><iframe src="https://www.youtube.com/embed/IpQ7z-w_3M4" allowfullscreen></iframe></div>
+                <a href="https://www.youtube.com/watch?v=IpQ7z-w_3M4" target="_blank" class="yt-link">▶️ Video Açılmıyorsa Tıkla</a>
             </div>
             <div class="card">
                 <div class="desc">⚠️ Arka SAM Beyni Su Alma Sorunu</div>
                 <div class="video-container"><iframe src="https://www.youtube.com/embed/eX5t3c5_wFo" allowfullscreen></iframe></div>
+                <a href="https://www.youtube.com/watch?v=eX5t3c5_wFo" target="_blank" class="yt-link">▶️ Video Açılmıyorsa Tıkla</a>
             </div>
             <div class="card">
                 <div class="desc">🌡️ Klima Paneli Gizli Menü</div>
                 <div class="video-container"><iframe src="https://www.youtube.com/embed/2K8AF-d_H-A" allowfullscreen></iframe></div>
+                <a href="https://www.youtube.com/watch?v=2K8AF-d_H-A" target="_blank" class="yt-link">▶️ Video Açılmıyorsa Tıkla</a>
             </div>
             <div class="card">
                 <div class="desc">⚙️ Airmatic Kompresör Değişimi</div>
                 <div class="video-container"><iframe src="https://www.youtube.com/embed/C6q55X-EiwQ" allowfullscreen></iframe></div>
+                <a href="https://www.youtube.com/watch?v=C6q55X-EiwQ" target="_blank" class="yt-link">▶️ Video Açılmıyorsa Tıkla</a>
             </div>
             <div class="card">
                 <div class="desc">🛢️ OM642 Yağ Soğutucu (Oil Cooler) Tamiri</div>
                 <div class="video-container"><iframe src="https://www.youtube.com/embed/8nvzOq4eKqU" allowfullscreen></iframe></div>
+                <a href="https://www.youtube.com/watch?v=8nvzOq4eKqU" target="_blank" class="yt-link">▶️ Video Açılmıyorsa Tıkla</a>
             </div>
         </div>
 
@@ -128,19 +134,50 @@
 
         <div id="reset" class="tab-content">
             <h2>Servis ve Adaptasyon Sıfırlama</h2>
+            
             <div class="card" style="border-left-color: #007bff;">
-                <div class="desc">🔧 Servis Işığı Sıfırlama (Assyst Plus)</div>
-                <div class="solution">Kontak 1. konum > Trip menüsüne gel > R tuşuna 3 kez bas > Voltajı görünce yön tuşları ile menüye gir.</div>
+                <div class="desc">🔧 Servis Işığı Sıfırlama (Assyst Plus) - Adım Adım</div>
+                <div class="solution">
+                    <ol style="margin-left: 15px; padding-left: 0;">
+                        <li><strong>Adım 1:</strong> Anahtarı kontağa takın ve <strong>1. konuma</strong> çevirin (Göstergede SRS ışığı yanmalı).</li>
+                        <li><strong>Adım 2:</strong> Direksiyonun solundaki tuşlarla ekranda <strong>Kilometre (KM)</strong> sayacını görün.</li>
+                        <li><strong>Adım 3:</strong> Gösterge panelinin sağındaki <strong>'R' (Reset)</strong> tuşuna <strong>3 kez hızlıca</strong> basın. Bir "Bip" sesi duyacaksınız ve ekranda Akü Voltajı (örn: UB: 12.4V) görünecek.</li>
+                        <li><strong>Adım 4:</strong> Direksiyonun solundaki <strong>'Aşağı Ok'</strong> tuşuna basarak <strong>"Service Menu"</strong> seçeneğine gelin.</li>
+                        <li><strong>Adım 5:</strong> Direksiyonun solundaki <strong>'- ve +'</strong> tuşlarını kullanarak en alttaki <strong>"Confirmation"</strong> (Onay) satırına inin.</li>
+                        <li><strong>Adım 6:</strong> Sağdaki menü tuşuna basıp içine girin ve <strong>"Full Service"</strong> seçeneğini onaylayın (Service Confirmed yazar).</li>
+                        <li><strong>Sonuç:</strong> Kontağı kapatın. Servis sayacı 15.000 KM / 365 Gün olarak sıfırlanmıştır.</li>
+                    </ol>
+                </div>
             </div>
+
             <div class="card" style="border-left-color: #007bff;">
-                <div class="desc">🪟 Cam Resetleme</div>
-                <div class="solution">Camı kapat, tuşu bırakma 2 sn daha çekili tut. Aynısını açarken yap.</div>
+                <div class="desc">🪟 Cam ve Sunroof Resetleme (Akü Değişimi Sonrası)</div>
+                <div class="solution">
+                    Eğer camlar tek dokunuşla (Auto) kapanmıyorsa:
+                    <ol style="margin-left: 15px; padding-left: 0;">
+                        <li>İlgili camın tuşuna basılı tutarak camı tamamen <strong>kapatın</strong>.</li>
+                        <li>Cam kapandıktan sonra parmağınızı tuştan çekmeyin, <strong>2 saniye daha</strong> basılı tutun.</li>
+                        <li>Sonra camı tamamen <strong>açın</strong> ve açıldıktan sonra yine <strong>2 saniye</strong> basılı tutun.</li>
+                        <li>Bu işlemi 4 cam ve Sunroof için tek tek yapın.</li>
+                    </ol>
+                </div>
             </div>
         </div>
 
         <div id="fuses" class="tab-content">
             <h2>Sigorta Konumları</h2>
-            <p>1. Motor Bölümü (Sağ) <br> 2. Bagaj (Sağ Kapak Arkası) <br> 3. Ön Yolcu Göğüs Yanı</p>
+            <div class="card">
+                <div class="desc">1. Motor Bölümü Kutusu</div>
+                <div class="solution">Kaputu açınca sağ tarafta (yolcu tarafı), camın önündeki siyah kutu. <strong>Motor, Korna, Silecekler</strong> buradadır.</div>
+            </div>
+            <div class="card">
+                <div class="desc">2. Bagaj Kutusu</div>
+                <div class="solution">Bagajı açınca sağ taraftaki döşeme kapağının arkasında. <strong>Airmatic, Koltuklar, Bagaj Kapağı</strong> buradadır.</div>
+            </div>
+            <div class="card">
+                <div class="desc">3. Ön Konsol (Kokpit) Kutusu</div>
+                <div class="solution">Ön yolcu kapısını açın. Göğüsün (torpidonun) yan tarafındaki kapağı kanırtarak açın. <strong>Çakmaklık, Radyo, İç Işıklar</strong> buradadır.</div>
+            </div>
         </div>
 
         <div id="services" class="tab-content">
@@ -151,7 +188,7 @@
                     <strong>📞 Tel:</strong> <a href="tel:+905373108922">+90 537 310 89 22</a><br>
                     <br>
                     <iframe width="100%" height="250" frameborder="0" style="border:0" src="https://maps.google.com/maps?q=Premium+Servis+İstanbul+Beylikdüzü&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-                    <br><a href="https://maps.google.com/?q=Premium+Servis+İstanbul" target="_blank">➤ Haritada Aç</a>
+                    <br><a href="https://maps.google.com/?q=Premium+Servis+İstanbul" target="_blank" style="color:#d32f2f; font-weight:bold;">➤ Haritada Yol Tarifi Al</a>
                 </div>
             </div>
         </div>
@@ -159,7 +196,7 @@
     </div>
 
     <script>
-        // --- GÖMÜLÜ VERİTABANI (Dosya okuma hatası olmaması için buraya aldık) ---
+        // --- GÖMÜLÜ VERİTABANI ---
         const database = [
           { "code": "P0300", "description": "Rastgele/Çoklu Silindirde Tekleme", "solution": "Benzinli: Buji/Bobin/MAF. Dizel: Enjektör veya Kompresyon.", "category": "Motor" },
           { "code": "P0016", "description": "Krank-Eksantrik Korelasyon Hatası (Bank 1)", "solution": "⚠️ KRİTİK: M272/M273 motorlarda Denge Mili (Balance Shaft) dişlisi aşınması.", "category": "Motor (Kronik)" },
@@ -173,9 +210,9 @@
           { "code": "Rear SAM", "description": "Arka Beyin Su Alma", "solution": "Stop lambası contalarından su girer. Beyin temizlenmeli, contalar değişmeli.", "category": "Elektronik" }
         ];
 
-        // --- SAYFA YÜKLENİNCE ÇALIŞACAK KODLAR ---
+        // --- SAYFA YÜKLENİNCE ---
         window.onload = function() {
-            renderList(database); // Listeyi hemen yükle
+            renderList(database); 
         };
 
         // --- TAB DEĞİŞTİRME ---
