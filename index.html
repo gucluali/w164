@@ -43,10 +43,10 @@
         a { color: var(--mb-blue); text-decoration: none; }
         a:hover { text-decoration: underline; }
 
-        /* VIDEO Wrapper (Responsive Youtube) */
+        /* VIDEO Wrapper */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Oranı */
+            padding-bottom: 56.25%; /* 16:9 */
             height: 0;
             overflow: hidden;
             border-radius: 5px;
@@ -74,12 +74,12 @@
     </header>
 
     <div class="nav-bar">
-        <button class="nav-btn active" onclick="openTab('codes')">Arıza Kodları</button>
-        <button class="nav-btn" onclick="openTab('tv')">W164 TV</button>
-        <button class="nav-btn" onclick="openTab('specs')">Sıvı & Bakım</button>
-        <button class="nav-btn" onclick="openTab('reset')">Sıfırlama</button>
-        <button class="nav-btn" onclick="openTab('fuses')">Sigortalar</button>
-        <button class="nav-btn" onclick="openTab('services')">Servislerim</button>
+        <button class="nav-btn active" onclick="openTab(event, 'codes')">Arıza Kodları</button>
+        <button class="nav-btn" onclick="openTab(event, 'tv')">W164 TV</button>
+        <button class="nav-btn" onclick="openTab(event, 'specs')">Sıvı & Bakım</button>
+        <button class="nav-btn" onclick="openTab(event, 'reset')">Sıfırlama</button>
+        <button class="nav-btn" onclick="openTab(event, 'fuses')">Sigortalar</button>
+        <button class="nav-btn" onclick="openTab(event, 'services')">Servislerim</button>
     </div>
 
     <div class="container">
@@ -92,47 +92,26 @@
 
         <div id="tv" class="tab-content">
             <h2>Tamir ve Bakım Videoları</h2>
-
             <div class="card">
                 <div class="desc">🛠️ Servis Işığı Sıfırlama (Assyst Plus Reset)</div>
-                <p style="font-size:0.9em; color:#666;">Direksiyon tuşlarını kullanarak "Service A/B" uyarısını silme işlemi.</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/IpQ7z-w_3M4" allowfullscreen></iframe>
-                </div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/IpQ7z-w_3M4" allowfullscreen></iframe></div>
             </div>
-
             <div class="card">
-                <div class="desc">⚠️ Arka SAM Beyni Su Alma Sorunu (Kronik)</div>
-                <p style="font-size:0.9em; color:#666;">Stop lambası contalarından su girmesi ve arka beynin oksitlenmesi.</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/eX5t3c5_wFo" allowfullscreen></iframe>
-                </div>
+                <div class="desc">⚠️ Arka SAM Beyni Su Alma Sorunu</div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/eX5t3c5_wFo" allowfullscreen></iframe></div>
             </div>
-
             <div class="card">
-                <div class="desc">🌡️ Klima Paneli Gizli Menü (Diagnostic)</div>
-                <p style="font-size:0.9em; color:#666;">Klima ekranında voltaj, motor sıcaklığı ve basınç değerlerini görme.</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/2K8AF-d_H-A" allowfullscreen></iframe>
-                </div>
+                <div class="desc">🌡️ Klima Paneli Gizli Menü</div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/2K8AF-d_H-A" allowfullscreen></iframe></div>
             </div>
-
             <div class="card">
-                <div class="desc">⚙️ Airmatic Kompresör ve Röle Değişimi</div>
-                <p style="font-size:0.9em; color:#666;">Araç yükselmiyorsa veya kompresör çok sesli çalışıyorsa yapılacaklar.</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/C6q55X-EiwQ" allowfullscreen></iframe>
-                </div>
+                <div class="desc">⚙️ Airmatic Kompresör Değişimi</div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/C6q55X-EiwQ" allowfullscreen></iframe></div>
             </div>
-
             <div class="card">
-                <div class="desc">🛢️ OM642 Dizel Yağ Soğutucu (Oil Cooler) Kaçağı</div>
-                <p style="font-size:0.9em; color:#666;">Meşhur "V" arası yağ kaçağı ve mor contaların değişimi (Hızlandırılmış).</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/8nvzOq4eKqU" allowfullscreen></iframe>
-                </div>
+                <div class="desc">🛢️ OM642 Yağ Soğutucu (Oil Cooler) Tamiri</div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/8nvzOq4eKqU" allowfullscreen></iframe></div>
             </div>
-
         </div>
 
         <div id="specs" class="tab-content">
@@ -151,45 +130,94 @@
             <h2>Servis ve Adaptasyon Sıfırlama</h2>
             <div class="card" style="border-left-color: #007bff;">
                 <div class="desc">🔧 Servis Işığı Sıfırlama (Assyst Plus)</div>
-                <div class="solution">
-                    1. Kontak 1. konuma getirilir (Kilometre göstergesi görünmeli).<br>
-                    2. Direksiyondaki sağ tuş ile "Trip" (Km) menüsüne gel.<br>
-                    3. Göstergedeki "R" (Reset) tuşuna 3 defa hızlıca bas. "Bip" sesi duyulur ve Voltaj menüsü gelir.<br>
-                    4. Direksiyon sol tuşları ile "Service Menu"ye gel ve onayla.<br>
-                    5. "Confirmation" -> "Full Service" seçeneğini seç.
-                </div>
+                <div class="solution">Kontak 1. konum > Trip menüsüne gel > R tuşuna 3 kez bas > Voltajı görünce yön tuşları ile menüye gir.</div>
             </div>
             <div class="card" style="border-left-color: #007bff;">
-                <div class="desc">🪟 Cam ve Sunroof Resetleme</div>
-                <div class="solution">
-                    Akü değişiminden sonra camlar tek tuşla kapanmıyorsa:<br>
-                    1. Camı kapatma tuşuna basılı tutarak tamamen kapat.<br>
-                    2. Kapandıktan sonra tuşu bırakma, 2 saniye daha çekili tut.<br>
-                    3. Aynısını açma yönünde yap. Her cam için tekrarla.
-                </div>
+                <div class="desc">🪟 Cam Resetleme</div>
+                <div class="solution">Camı kapat, tuşu bırakma 2 sn daha çekili tut. Aynısını açarken yap.</div>
             </div>
         </div>
 
         <div id="fuses" class="tab-content">
-            <h2>Sigorta Şeması ve Konumları</h2>
-            <p>W164 modelinde 3 ana sigorta kutusu bulunur:</p>
-            <ul>
-                <li><strong>Motor Bölümü:</strong> Sağ tarafta, kaput altında.</li>
-                <li><strong>Bagaj Bölümü:</strong> Sağ döşeme kapağının arkasında.</li>
-                <li><strong>Ön Konsol:</strong> Sağ yolcu tarafı göğüs yan kapağında.</li>
-            </ul>
+            <h2>Sigorta Konumları</h2>
+            <p>1. Motor Bölümü (Sağ) <br> 2. Bagaj (Sağ Kapak Arkası) <br> 3. Ön Yolcu Göğüs Yanı</p>
         </div>
 
         <div id="services" class="tab-content">
-            <h2>Özel Servis ve Yedek Parça</h2>
+            <h2>Premium Servis İstanbul</h2>
             <div class="card" style="border-left-color: #d32f2f;">
-                <div class="code" style="color:#000;">Premium Servis İstanbul</div>
-                <div class="desc">Mercedes-Benz Özel Servisi</div>
-                <div class="solution" style="line-height: 1.8;">
-                    <strong>📍 Adres:</strong> Beysan San. Sit, Yakuplu, Birlik Cd. No:12, 34524 Beylikdüzü/İstanbul<br>
-                    <strong>📞 Telefon:</strong> <a href="tel:+905373108922">+90 537 310 89 22</a><br>
-                    <strong>🌐 Web:</strong> <a href="http://www.premiummercedes.com/" target="_blank">www.premiummercedes.com</a>
-                    <br><br>
-                    <iframe width="100%" height="300" frameborder="0" style="border:0; border-radius: 5px;" src="https://maps.google.com/maps?q=Premium+Servis+İstanbul+Beylikdüzü&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                <div class="solution">
+                    <strong>📍 Adres:</strong> Beysan San. Sit, Yakuplu, Beylikdüzü/İst.<br>
+                    <strong>📞 Tel:</strong> <a href="tel:+905373108922">+90 537 310 89 22</a><br>
                     <br>
-                    <a href="https://maps.google.com/?q=Premium+Servis+İstanbul" target="_blank" style="display:inline-block; margin-top:10px; text-decoration:none; color:#d32f2f; font-weight:bold;">➤ Google Harital
+                    <iframe width="100%" height="250" frameborder="0" style="border:0" src="https://maps.google.com/maps?q=Premium+Servis+İstanbul+Beylikdüzü&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                    <br><a href="https://maps.google.com/?q=Premium+Servis+İstanbul" target="_blank">➤ Haritada Aç</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- GÖMÜLÜ VERİTABANI (Dosya okuma hatası olmaması için buraya aldık) ---
+        const database = [
+          { "code": "P0300", "description": "Rastgele/Çoklu Silindirde Tekleme", "solution": "Benzinli: Buji/Bobin/MAF. Dizel: Enjektör veya Kompresyon.", "category": "Motor" },
+          { "code": "P0016", "description": "Krank-Eksantrik Korelasyon Hatası (Bank 1)", "solution": "⚠️ KRİTİK: M272/M273 motorlarda Denge Mili (Balance Shaft) dişlisi aşınması.", "category": "Motor (Kronik)" },
+          { "code": "P2004", "description": "Emme Manifoldu Akış Kontrolü Açık Kaldı", "solution": "Emme manifoldu plastik kolu kırık. Tamir kiti veya manifold değişimi.", "category": "Motor" },
+          { "code": "P2015", "description": "Emme Manifoldu Pozisyon Sensörü Hatası", "solution": "OM642 Dizel: Swirl Flap motoru yağlanmış. Direnç ile iptal edilebilir veya motor değişir.", "category": "Motor (Dizel)" },
+          { "code": "Black Death", "description": "Enjektör Dipleri Ziftlenmesi", "solution": "Enjektör pulları kaçırıyor. Acil sökülüp temizlenmeli ve pullar değişmeli.", "category": "Motor (Dizel)" },
+          { "code": "Oil Cooler", "description": "V Bölgesi Yağ Kaçağı", "solution": "Motorun ortasından şanzımana yağ damlıyor. Yağ soğutucu contaları (Mor contalar) değişmeli.", "category": "Motor (Dizel)" },
+          { "code": "C1510", "description": "Airmatic Seviye Sensörü Hatası", "solution": "Tekerlek seviye sensörü veya kablo tesisatı kopuk.", "category": "Airmatic" },
+          { "code": "5503", "description": "Airmatic Kompresör Soğuma Süresi", "solution": "Sistemde kaçak var, kompresör çok çalışıyor. Körükleri ve hortumları test et.", "category": "Airmatic" },
+          { "code": "P0717", "description": "Türbin Hız Sensörü Sinyal Yok", "solution": "7G-Tronic kart arızası. Kart tamiri veya değişimi.", "category": "Şanzıman" },
+          { "code": "Rear SAM", "description": "Arka Beyin Su Alma", "solution": "Stop lambası contalarından su girer. Beyin temizlenmeli, contalar değişmeli.", "category": "Elektronik" }
+        ];
+
+        // --- SAYFA YÜKLENİNCE ÇALIŞACAK KODLAR ---
+        window.onload = function() {
+            renderList(database); // Listeyi hemen yükle
+        };
+
+        // --- TAB DEĞİŞTİRME ---
+        function openTab(evt, tabName) {
+            var i, x, btn;
+            x = document.getElementsByClassName("tab-content");
+            for (i = 0; i < x.length; i++) { x[i].style.display = "none"; }
+            
+            btn = document.getElementsByClassName("nav-btn");
+            for (i = 0; i < btn.length; i++) { btn[i].className = btn[i].className.replace(" active", ""); }
+            
+            document.getElementById(tabName).style.display = "block";
+            if(evt) evt.currentTarget.className += " active";
+        }
+
+        // --- ARAMA MOTORU ---
+        const searchInput = document.getElementById('searchInput');
+        const resultsDiv = document.getElementById('results');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toUpperCase();
+            const filtered = database.filter(item => 
+                item.code.toUpperCase().includes(term) || 
+                item.description.toUpperCase().includes(term) ||
+                item.solution.toUpperCase().includes(term)
+            );
+            renderList(filtered);
+        });
+
+        function renderList(items) {
+            if(items.length === 0) {
+                resultsDiv.innerHTML = '<p style="color:#777; text-align:center;">Kayıt bulunamadı.</p>';
+                return;
+            }
+            resultsDiv.innerHTML = items.map(item => `
+                <div class="card">
+                    <div class="code">${item.code} <span style="font-size:0.7em; color:#999; float:right;">${item.category}</span></div>
+                    <div class="desc">${item.description}</div>
+                    <div class="solution">💡 ${item.solution}</div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>
