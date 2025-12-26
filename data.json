@@ -2,14 +2,44 @@
   {
     "code": "P0300",
     "description": "Rastgele/Çoklu Silindirde Tekleme (Misfire)",
-    "solution": "W164 benzinli modellerde sık görülür. Genellikle ateşleme bobini, buji veya kütle hava akış (MAF) sensörü kaynaklıdır.",
-    "category": "Motor"
+    "solution": "Benzinli (M272/M273) motorlarda sık görülür. Ateşleme bobini, buji veya kütle hava akış (MAF) sensörü kontrol edilmeli. LPG'li araçlarda enjektör ayarı bozuk olabilir.",
+    "category": "Motor (Benzin)"
+  },
+  {
+    "code": "P0016",
+    "description": "Krank Mili Pozisyonu - Eksantrik Mili Pozisyonu Korelasyonu (Bank 1 Sensör A)",
+    "solution": "⚠️ KRİTİK: M272 (V6) ve M273 (V8) motorlarda 'Balance Shaft' (Denge Mili) dişlisinin aşındığını gösterir. Dişli sıyırırsa motor sente atlar. Motorun inip dişlinin değişmesi gerekebilir (Pahalı onarım).",
+    "category": "Motor (Benzin - Kronik)"
+  },
+  {
+    "code": "P0017",
+    "description": "Krank Mili Pozisyonu - Eksantrik Mili Pozisyonu Korelasyonu (Bank 1 Sensör B)",
+    "solution": "P0016 ile aynıdır. Denge mili (Balance Shaft) veya avare dişlisi (Idler Gear) aşınmasıdır. Sadece sensör değiştirerek düzelmez, mekanik kontrol şarttır.",
+    "category": "Motor (Benzin - Kronik)"
   },
   {
     "code": "P2004",
     "description": "Emme Manifoldu Akış Kontrolü Açık Takılı Kaldı (Bank 1)",
-    "solution": "M272 (V6) ve M273 (V8) motorlarda kroniktir. Emme manifoldundaki plastik kol kırılmıştır. Manifold tamir kiti veya değişimi gerekir.",
+    "solution": "Emme manifoldu üzerindeki plastik kollar kırılmıştır veya kurumdan sıkışmıştır. OM642 Dizel motorlarda 'Swirl Flap' motoru arızasıdır. Tamir kiti veya manifold değişimi gerekir.",
     "category": "Motor"
+  },
+  {
+    "code": "P2015",
+    "description": "Emme Manifoldu Yolluk Pozisyon Sensörü/Anahtar Devresi Aralığı/Performansı",
+    "solution": "OM642 Dizel motorlarda kroniktir. Turbo emiş borusundan damlayan yağ, altındaki Swirl Flap motorunu bozar. Geçici çözüm olarak 4.7k Ohm direnç takılabilir ama asıl çözüm yağ kaçağını (Turbo Contası) kesip motoru değiştirmektir.",
+    "category": "Motor (Dizel OM642)"
+  },
+  {
+    "code": "Black Death",
+    "description": "Enjektör Dipleri Ziftlenmesi (Kod Vermeyebilir)",
+    "solution": "Motor kapağını açtığınızda enjektör diplerinde kömürleşmiş siyah zift görürsünüz. Enjektör bakır pulları kaçırıyordur. Acil müdahale edilmezse enjektörler kaynar ve silindir kapağı zarar görür.",
+    "category": "Motor (Dizel - Kronik)"
+  },
+  {
+    "code": "Oil Cooler",
+    "description": "V Bölgesi Yağ Soğutucu Kaçağı (Kod Vermeyebilir)",
+    "solution": "OM642 motorlarda aracın altına, şanzımanla motor arasından yağ damlar. Arka krank keçesi sanılır ama genellikle V yatağındaki yağ soğutucu contaları (kırmızı/mor contalar) patlamıştır. Parça ucuzdur ama işçilik çok ağırdır (Manifoldlar sökülür).",
+    "category": "Motor (Dizel - Kronik)"
   },
   {
     "code": "P0171",
@@ -18,33 +48,51 @@
     "category": "Yakıt Sistemi"
   },
   {
+    "code": "P0101",
+    "description": "Kütle Hava Akış (MAF) Devresi Aralığı/Performans Sorunu",
+    "solution": "Hava filtresi tıkalı olabilir, hava emiş borularında çatlak olabilir veya MAF sensörü kirlenmiştir. Dizel araçlarda turbo hortumlarında kaçak varsa da bu kodu atabilir.",
+    "category": "Motor"
+  },
+  {
     "code": "C1510",
     "description": "Sol Ön Seviye Sensörü Sinyali İmplazible (Mantıksız)",
-    "solution": "Airmatic (Havalı süspansiyon) sorunu. Tekerlek seviye sensörünün kabloları kopmuş veya sensör bozulmuş olabilir.",
+    "solution": "Airmatic (Havalı süspansiyon) sorunu. Tekerlek seviye sensörünün kabloları kopmuş veya sensör kolu kırılmış olabilir.",
     "category": "Süspansiyon (Airmatic)"
   },
   {
     "code": "5503",
     "description": "Airmatic Kompresörü Soğuma Süresi Aşımı",
-    "solution": "Sistemde hava kaçağı (genellikle amortisör körüklerinde) olduğu için kompresör sürekli çalışıp ısınıyordur. Kaçak testi yapılmalı.",
+    "solution": "Sistemde hava kaçağı (genellikle amortisör körüklerinde veya valf bloğunda) olduğu için kompresör sürekli çalışıp ısınıyordur. Kaçak testi yapılmalı. Röle yapışmış olabilir.",
     "category": "Süspansiyon (Airmatic)"
   },
   {
     "code": "P0717",
     "description": "Türbin Hız Sensörü Devresi Sinyal Yok",
-    "solution": "7G-Tronic (722.9) şanzıman kartı (iletken plaka) arızasıdır. Şanzıman kartının revizyonu veya değişimi gerekir.",
-    "category": "Şanzıman"
+    "solution": "7G-Tronic (722.9) şanzıman kartı (iletken plaka) üzerindeki hız sensörü bozulmuştur. Şanzıman kartının revizyonu veya değişimi gerekir.",
+    "category": "Şanzıman (7G-Tronic)"
   },
   {
     "code": "P0722",
     "description": "Çıkış Hız Sensörü Sinyal Yok",
-    "solution": "Şanzıman kendini korumaya alır, vites değiştirmez. 7G-Tronic şanzıman beyni (iletken plaka) üzerindeki hız sensörü bozulmuştur.",
-    "category": "Şanzıman"
+    "solution": "Şanzıman kendini korumaya alır (Limp Mode), vites değiştirmez. 7G-Tronic şanzıman beyni (iletken plaka) üzerindeki hız sensörü bozulmuştur.",
+    "category": "Şanzıman (7G-Tronic)"
+  },
+  {
+    "code": "P2767",
+    "description": "Giriş/Türbin Hız Sensörü B Devresi Sinyal Yok",
+    "solution": "P0717 ile benzerdir. Kart üzerindeki Y3/8n2 sensörü arızalıdır. Şanzıman kartı değişimi veya profesyonel lehim tamiri gerekir.",
+    "category": "Şanzıman (7G-Tronic)"
   },
   {
     "code": "P242F",
     "description": "Dizel Partikül Filtresi (DPF) Tıkanıklığı - Kül Birikimi",
-    "solution": "CDI (Dizel) motorlarda görülür. Araç uzun yola çıkarılarak rejenerasyon yapılmalı veya servis cihazıyla zorla rejenerasyon başlatılmalıdır.",
+    "solution": "CDI (Dizel) motorlarda görülür. Araç rejenerasyon yapamıyordur. Diferansiyel basınç sensörünü kontrol edin. Uzun yolda yüksek devir sürüşü veya cihazla zorla rejenerasyon deneyin.",
+    "category": "Egzoz (Dizel)"
+  },
+  {
+    "code": "P0471",
+    "description": "Egzoz Basınç Sensörü Aralığı/Performansı",
+    "solution": "Egzoz geri basınç sensörü (Backpressure sensor) tıkanmış veya bozulmuş. Genellikle EGR valfinin yanındadır. Temizlenmesi veya değişimi gerekir.",
     "category": "Egzoz (Dizel)"
   },
   {
@@ -54,9 +102,15 @@
     "category": "Güvenlik (Airbag)"
   },
   {
+    "code": "Rear SAM",
+    "description": "Arka Sinyal Toplama Modülü (Arka Beyin) Su Hasarı",
+    "solution": "Kod vermeden stop lambalarının saçmalaması, benzin göstergesinin çalışmaması gibi sorunlar yapar. Sağ arka stop contasından su alır. SAM beyni temizlenmeli, su kaçağı giderilmelidir.",
+    "category": "Elektronik (Kronik)"
+  },
+  {
     "code": "P2047",
     "description": "AdBlue Enjektörü (Reductant Injector) Devresi Açık (Bank 1)",
-    "solution": "BlueTec dizel modellerde (ML320/350 CDI) sık görülür. AdBlue enjektörü tıkanmış veya bozulmuştur. Kristalleşme temizlenmelidir.",
+    "solution": "BlueTec dizel modellerde sık görülür. AdBlue enjektörü tıkanmış veya bozulmuştur. Beyaz kristalleşme temizlenmelidir.",
     "category": "Egzoz (BlueTec)"
   },
   {
@@ -82,5 +136,11 @@
     "description": "Yakıt Yolu/Sistem Basıncı - Çok Düşük",
     "solution": "Dizel araçlarda yüksek basınç pompası veya enjektör geri dönüşlerinde kaçak olabilir. Yakıt filtresi tıkanıklığı da kontrol edilmelidir.",
     "category": "Motor (Dizel)"
+  },
+  {
+    "code": "P0299",
+    "description": "Turboşarj/Süperşarj Düşük Takviye (Underboost)",
+    "solution": "Turbo hortumlarında yırtık, intercooler kaçağı veya Turbo Aktüatörü (Electronic Actuator) arızası. OM642 motorlarda turbo aktüatörünün içindeki lehimler kopabilir.",
+    "category": "Motor (Turbo)"
   }
 ]
