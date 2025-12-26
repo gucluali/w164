@@ -35,9 +35,10 @@
         .solution { margin-top: 10px; color: #555; font-size: 0.95em; line-height: 1.5; }
         
         /* Teknik Tablo */
-        table { width: 100%; border-collapse: collapse; background: white; }
+        table { width: 100%; border-collapse: collapse; background: white; margin-bottom: 15px; }
         th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
-        th { background: #eee; }
+        th { background: #eee; font-weight: bold; color: #444; }
+        .data-label { font-weight: bold; color: #666; width: 40%; background: #f9f9f9; }
 
         /* Linkler */
         a { color: var(--mb-blue); text-decoration: none; }
@@ -56,8 +57,9 @@
 
     <div class="nav-bar">
         <button class="nav-btn active" onclick="openTab('codes')">Arıza Kodları</button>
+        <button class="nav-btn" onclick="openTab('mycar')">Benim Mercedes</button>
         <button class="nav-btn" onclick="openTab('specs')">Sıvı & Bakım</button>
-        <button class="nav-btn" onclick="openTab('reset')">Sıfırlama (Reset)</button>
+        <button class="nav-btn" onclick="openTab('reset')">Sıfırlama</button>
         <button class="nav-btn" onclick="openTab('fuses')">Sigortalar</button>
         <button class="nav-btn" onclick="openTab('services')">Servislerim</button>
     </div>
@@ -66,8 +68,47 @@
         
         <div id="codes" class="tab-content active">
             <h2>OBD & Hata Kodu Arama</h2>
-            <input type="text" id="searchInput" class="search-box" placeholder="Hata kodu ara (Örn: P0300, Airmatic)...">
+            <input type="text" id="searchInput" class="search-box" placeholder="Hata kodu veya parça ara (Örn: P0300, Enjektör)...">
             <div id="results"></div>
+        </div>
+
+        <div id="mycar" class="tab-content">
+            <h2>Araç Kimlik Kartı (Data Card)</h2>
+            <div class="card" style="border-left-color: #8e9090;">
+                <div class="code" style="color: #333;">WDC 164.120 - ML 280/300 CDI 4MATIC</div>
+                <div class="desc">Fabrika Çıkış Verileri</div>
+                <table style="margin-top:10px;">
+                    <tr><td class="data-label">Şasi No (VIN)</td><td>WDC1641201A101858</td></tr>
+                    <tr><td class="data-label">Motor No (OM642)</td><td>642.940 40 131470</td></tr>
+                    <tr><td class="data-label">Şanzıman No (722.9)</td><td>722.902 00 532714</td></tr>
+                    <tr><td class="data-label">Boya Kodu</td><td>775U - İridyum Gümüşü (Metalik)</td></tr>
+                    <tr><td class="data-label">Döşeme</td><td>401A - Kumaş Siyah / Antrasit</td></tr>
+                    <tr><td class="data-label">Üretim Tarihi</td><td>04.05.2006</td></tr>
+                </table>
+            </div>
+
+            <h3>Fabrika Donanım Listesi (SA Kodları)</h3>
+            <div class="card">
+                <table>
+                    <tr><th>Kod</th><th>Donanım Açıklaması</th></tr>
+                    <tr><td>213</td><td>Parametrik Direksiyon (Hıza Duyarlı)</td></tr>
+                    <tr><td>220</td><td>PARKTRONIC Sistemi (PTS)</td></tr>
+                    <tr><td>427</td><td>7G-TRONIC Otomatik Şanzıman</td></tr>
+                    <tr><td>474</td><td>Dizel Partikül Filtresi (DPF)</td></tr>
+                    <tr><td>500</td><td>Elektrikli Katlanır Dış Aynalar</td></tr>
+                    <tr><td>581</td><td>Otomatik Klima (Thermotronic)</td></tr>
+                    <tr><td>615</td><td>Bi-Xenon Farlar (Aktif Viraj Aydınlatmalı)</td></tr>
+                    <tr><td>619</td><td>Dönüş Sinyal Lambası (Cornering Light)</td></tr>
+                    <tr><td>731</td><td>Kök Ceviz Ahşap Kaplama</td></tr>
+                    <tr><td>810</td><td>Premium Ses Sistemi (Harman Kardon)</td></tr>
+                    <tr><td>819</td><td>CD Değiştirici (6'lı)</td></tr>
+                    <tr><td>873</td><td>Isıtmalı Ön Koltuklar</td></tr>
+                    <tr><td>876</td><td>İç Mekan Işık Paketi</td></tr>
+                    <tr><td>882</td><td>İç Denetim ve Alarm Sensörü</td></tr>
+                    <tr><td>900</td><td>Dış Krom Paketi</td></tr>
+                    <tr><td>U89</td><td>Görünüm Paketi (Off-Road Optik)</td></tr>
+                </table>
+            </div>
         </div>
 
         <div id="specs" class="tab-content">
