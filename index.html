@@ -40,9 +40,14 @@
         th { background: #eee; font-weight: bold; color: #444; }
         .data-label { font-weight: bold; color: #666; width: 40%; background: #f9f9f9; }
 
-        /* Linkler */
+        /* Linkler ve Butonlar */
         a { color: var(--mb-blue); text-decoration: none; }
         a:hover { text-decoration: underline; }
+        .pdf-btn { display: inline-block; padding: 10px 15px; background: var(--mb-silver); color: white; text-decoration: none; border-radius: 4px; margin-top: 10px; font-size: 0.9rem; }
+        .pdf-btn:hover { background: var(--mb-black); text-decoration: none; }
+
+        /* PDF Viewer Alanı */
+        .pdf-frame { width: 100%; height: 500px; border: 1px solid #ddd; border-radius: 4px; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
@@ -58,6 +63,7 @@
     <div class="nav-bar">
         <button class="nav-btn active" onclick="openTab('codes')">Arıza Kodları</button>
         <button class="nav-btn" onclick="openTab('mycar')">Benim Mercedes</button>
+        <button class="nav-btn" onclick="openTab('presentations')">Sunumlar</button>
         <button class="nav-btn" onclick="openTab('specs')">Sıvı & Bakım</button>
         <button class="nav-btn" onclick="openTab('reset')">Sıfırlama</button>
         <button class="nav-btn" onclick="openTab('fuses')">Sigortalar</button>
@@ -86,28 +92,25 @@
                     <tr><td class="data-label">Üretim Tarihi</td><td>04.05.2006</td></tr>
                 </table>
             </div>
+        </div>
 
-            <h3>Fabrika Donanım Listesi (SA Kodları)</h3>
+        <div id="presentations" class="tab-content">
+            <h2>Teknik Dokümanlar ve Sunumlar</h2>
+            
             <div class="card">
-                <table>
-                    <tr><th>Kod</th><th>Donanım Açıklaması</th></tr>
-                    <tr><td>213</td><td>Parametrik Direksiyon (Hıza Duyarlı)</td></tr>
-                    <tr><td>220</td><td>PARKTRONIC Sistemi (PTS)</td></tr>
-                    <tr><td>427</td><td>7G-TRONIC Otomatik Şanzıman</td></tr>
-                    <tr><td>474</td><td>Dizel Partikül Filtresi (DPF)</td></tr>
-                    <tr><td>500</td><td>Elektrikli Katlanır Dış Aynalar</td></tr>
-                    <tr><td>581</td><td>Otomatik Klima (Thermotronic)</td></tr>
-                    <tr><td>615</td><td>Bi-Xenon Farlar (Aktif Viraj Aydınlatmalı)</td></tr>
-                    <tr><td>619</td><td>Dönüş Sinyal Lambası (Cornering Light)</td></tr>
-                    <tr><td>731</td><td>Kök Ceviz Ahşap Kaplama</td></tr>
-                    <tr><td>810</td><td>Premium Ses Sistemi (Harman Kardon)</td></tr>
-                    <tr><td>819</td><td>CD Değiştirici (6'lı)</td></tr>
-                    <tr><td>873</td><td>Isıtmalı Ön Koltuklar</td></tr>
-                    <tr><td>876</td><td>İç Mekan Işık Paketi</td></tr>
-                    <tr><td>882</td><td>İç Denetim ve Alarm Sensörü</td></tr>
-                    <tr><td>900</td><td>Dış Krom Paketi</td></tr>
-                    <tr><td>U89</td><td>Görünüm Paketi (Off-Road Optik)</td></tr>
-                </table>
+                <div class="desc">📘 W164 M-Serisi Anatomisi (2007 Model Yılı İncelemesi)</div>
+                <p style="font-size:0.9em; color:#666;">Motor seçenekleri, şasi yapısı ve güvenlik sistemlerinin detaylı teknik analizi.</p>
+                <iframe class="pdf-frame" src="anatomi.pdf"></iframe>
+                <br>
+                <a href="anatomi.pdf" target="_blank" class="pdf-btn">⬇️ Sunumu Tam Ekran Aç / İndir</a>
+            </div>
+
+            <div class="card">
+                <div class="desc">📋 Orijinal Parça & Veri Kartı (Data Card)</div>
+                <p style="font-size:0.9em; color:#666;">Aracın fabrika çıkış donanım kodları (SA Kodları) ve parça numaraları.</p>
+                <iframe class="pdf-frame" src="verikarti.pdf"></iframe>
+                <br>
+                <a href="verikarti.pdf" target="_blank" class="pdf-btn">⬇️ Belgeyi Tam Ekran Aç / İndir</a>
             </div>
         </div>
 
@@ -121,12 +124,10 @@
                 <tr><td>Soğutma Sıvısı (Antifriz)</td><td>9.5 - 12 Litre</td><td>MB 325.0 (Mavi/Yeşil)</td></tr>
                 <tr><td>Fren Hidroliği</td><td>-</td><td>DOT 4 Plus</td></tr>
             </table>
-            <p style="margin-top:10px; font-size:0.9em; color:#666;">* Not: Şanzıman yağı rengi (Kırmızı veya Mavi) karterdeki taşma borusunun rengine göre değişir.</p>
         </div>
 
         <div id="reset" class="tab-content">
             <h2>Servis ve Adaptasyon Sıfırlama</h2>
-            
             <div class="card" style="border-left-color: #007bff;">
                 <div class="desc">🔧 Servis Işığı Sıfırlama (Assyst Plus)</div>
                 <div class="solution">
@@ -137,38 +138,20 @@
                     5. "Confirmation" -> "Full Service" seçeneğini seç.
                 </div>
             </div>
-
-            <div class="card" style="border-left-color: #007bff;">
-                <div class="desc">🪟 Cam ve Sunroof Resetleme</div>
-                <div class="solution">
-                    Akü değişiminden sonra camlar tek tuşla kapanmıyorsa:<br>
-                    1. Camı kapatma tuşuna basılı tutarak tamamen kapat.<br>
-                    2. Kapandıktan sonra tuşu bırakma, 2 saniye daha çekili tut.<br>
-                    3. Aynısını açma yönünde yap. Her cam için tekrarla.
-                </div>
-            </div>
         </div>
 
         <div id="fuses" class="tab-content">
             <h2>Sigorta Şeması ve Konumları</h2>
             <p>W164 modelinde 3 ana sigorta kutusu bulunur:</p>
             <ul>
-                <li><strong>Motor Bölümü:</strong> Sağ tarafta, kaput altında. (Motor, Klima, Korna)</li>
-                <li><strong>Bagaj Bölümü:</strong> Sağ döşeme kapağının arkasında. (Airmatic, Koltuklar, Bagaj kapağı)</li>
-                <li><strong>Ön Konsol:</strong> Sağ yolcu tarafı göğüs yan kapağında. (İç aydınlatma, Radyo)</li>
+                <li><strong>Motor Bölümü:</strong> Sağ tarafta, kaput altında.</li>
+                <li><strong>Bagaj Bölümü:</strong> Sağ döşeme kapağının arkasında.</li>
+                <li><strong>Ön Konsol:</strong> Sağ yolcu tarafı göğüs yan kapağında.</li>
             </ul>
-            <div class="card">
-                <div class="desc">⚠️ Kritik Sigortalar</div>
-                <div class="solution">
-                    <strong>Çakmaklık (Ön):</strong> Motor bölümü No: 43 veya Bagaj No: 71 (Yıla göre değişir)<br>
-                    <strong>Airmatic Kompresör:</strong> Motor Bölümü - f108 (40A Büyük Sigorta)
-                </div>
-            </div>
         </div>
 
         <div id="services" class="tab-content">
             <h2>Özel Servis ve Yedek Parça</h2>
-            
             <div class="card" style="border-left-color: #d32f2f;">
                 <div class="code" style="color:#000;">Premium Servis İstanbul</div>
                 <div class="desc">Mercedes-Benz Özel Servisi</div>
@@ -177,18 +160,9 @@
                     <strong>📞 Telefon:</strong> <a href="tel:+905373108922">+90 537 310 89 22</a><br>
                     <strong>🌐 Web:</strong> <a href="http://www.premiummercedes.com/" target="_blank">www.premiummercedes.com</a>
                     <br><br>
-                    <iframe 
-                        width="100%" 
-                        height="300" 
-                        frameborder="0" 
-                        style="border:0; border-radius: 5px;" 
-                        src="https://maps.google.com/maps?q=Premium+Servis+İstanbul+Beylikdüzü&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                        allowfullscreen>
-                    </iframe>
+                    <iframe width="100%" height="300" frameborder="0" style="border:0; border-radius: 5px;" src="https://maps.google.com/maps?q=Premium+Servis+İstanbul+Beylikdüzü&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
                     <br>
-                    <a href="https://maps.google.com/?q=Premium+Servis+İstanbul" target="_blank" style="display:inline-block; margin-top:10px; text-decoration:none; color:#d32f2f; font-weight:bold;">
-                        ➤ Google Haritalar'da Yol Tarifi Al
-                    </a>
+                    <a href="https://maps.google.com/?q=Premium+Servis+İstanbul" target="_blank" style="display:inline-block; margin-top:10px; text-decoration:none; color:#d32f2f; font-weight:bold;">➤ Google Haritalar'da Yol Tarifi Al</a>
                 </div>
             </div>
         </div>
@@ -201,10 +175,8 @@
             var i;
             var x = document.getElementsByClassName("tab-content");
             var btn = document.getElementsByClassName("nav-btn");
-            
             for (i = 0; i < x.length; i++) { x[i].style.display = "none"; }
             for (i = 0; i < btn.length; i++) { btn[i].classList.remove("active"); }
-            
             document.getElementById(tabName).style.display = "block";
             event.currentTarget.classList.add("active");
         }
@@ -229,9 +201,7 @@
                         </div>
                     `).join('');
                 }
-
                 renderList(data); 
-
                 searchInput.addEventListener('input', (e) => {
                     const term = e.target.value.toUpperCase();
                     const filtered = data.filter(item => 
