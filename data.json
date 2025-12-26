@@ -1,14 +1,62 @@
 [
   {
     "code": "P0300",
-    "description": "Rastgele/Çoklu Silindir Tekleme Tespit Edildi",
-    "solution": "Bujileri, ateşleme bobinlerini ve yakıt enjektörlerini kontrol edin. Hava kaçaklarına bakın.",
+    "description": "Rastgele/Çoklu Silindirde Tekleme (Misfire)",
+    "solution": "W164 benzinli modellerde sık görülür. Genellikle ateşleme bobini, buji veya kütle hava akış (MAF) sensörü kaynaklıdır.",
+    "category": "Motor"
+  },
+  {
+    "code": "P2004",
+    "description": "Emme Manifoldu Akış Kontrolü Açık Takılı Kaldı (Bank 1)",
+    "solution": "M272 (V6) ve M273 (V8) motorlarda kroniktir. Emme manifoldundaki plastik kol kırılmıştır. Manifold tamir kiti veya değişimi gerekir.",
     "category": "Motor"
   },
   {
     "code": "P0171",
     "description": "Sistem Çok Fakir (Bank 1)",
-    "solution": "MAF sensörünü temizleyin, vakum kaçaklarını kontrol edin, O2 sensörüne bakın.",
+    "solution": "Hava emiş hattında kaçak (vakum kaçağı) veya MAF sensörü arızası. ML serisinde genellikle hava filtresi kutusu tam oturmadığında olur.",
     "category": "Yakıt Sistemi"
+  },
+  {
+    "code": "C1510",
+    "description": "Sol Ön Seviye Sensörü Sinyali İmplazible (Mantıksız)",
+    "solution": "Airmatic (Havalı süspansiyon) sorunu. Tekerlek seviye sensörünün kabloları kopmuş veya sensör bozulmuş olabilir.",
+    "category": "Süspansiyon (Airmatic)"
+  },
+  {
+    "code": "5503",
+    "description": "Airmatic Kompresörü Soğuma Süresi Aşımı",
+    "solution": "Sistemde hava kaçağı (genellikle amortisör körüklerinde) olduğu için kompresör sürekli çalışıp ısınıyordur. Kaçak testi yapılmalı.",
+    "category": "Süspansiyon (Airmatic)"
+  },
+  {
+    "code": "P0717",
+    "description": "Türbin Hız Sensörü Devresi Sinyal Yok",
+    "solution": "7G-Tronic (722.9) şanzıman kartı (iletken plaka) arızasıdır. Şanzıman kartının revizyonu veya değişimi gerekir.",
+    "category": "Şanzıman"
+  },
+  {
+    "code": "9006",
+    "description": "SRS Kontrol Ünitesi Düşük Voltaj",
+    "solution": "Genellikle akü zayıfladığında veya koltuk altındaki sarı SRS soketlerinde temassızlık olduğunda yanar.",
+    "category": "Güvenlik (Airbag)"
+  },
+  {
+    "code": "P2047",
+    "description": "AdBlue Enjektörü (Reductant Injector) Devresi Açık (Bank 1)",
+    "solution": "BlueTec dizel modellerde (ML320/350 CDI) sık görülür. AdBlue enjektörü tıkanmış veya bozulmuştur. Kristalleşme temizlenmelidir.",
+    "category": "Egzoz (BlueTec)"
+  },
+  {
+    "code": "C1140",
+    "description": "Direksiyon Açısı Sensörü (Steering Angle Sensor) Hatası",
+    "solution": "ESP ışığını yakar. Direksiyonun arkasındaki sargı (zemberek) veya sensörün kalibrasyonu bozulmuştur. Direksiyonu tam sağ-sol yaparak bazen düzelir.",
+    "category": "Fren/ESP"
+  },
+  {
+    "code": "1919",
+    "description": "ISM (Intelligent Servo Module) Mekanik Arıza",
+    "solution": "Araç 'P' (Park) modundan çıkmaz veya vitese geçmez. Şanzıman yanındaki ISM modülü arızalıdır. Değişim ve kodlama gerekir.",
+    "category": "Şanzıman"
   }
 ]
