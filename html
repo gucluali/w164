@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercedes W164 Hata Kodları</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #f4f4f4; }
+        .search-box { width: 100%; padding: 15px; font-size: 18px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px; }
+        .card { background: white; padding: 20px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .code { color: #d32f2f; font-weight: bold; font-size: 1.2em; }
+        .desc { font-weight: bold; margin-top: 5px; }
+        .solution { margin-top: 10px; color: #555; }
+    </style>
+</head>
+<body>
+
+    <h1>Mercedes W164 (ML) Arıza Rehberi</h1>
+    <input type="text" id="searchInput" class="search-box" placeholder="Hata kodu ara (Örn: P0300)...">
+    <div id="results"></div>
+
+    <script>
+        // Veriyi çek ve listele
+        let database = [];
+
+        // data.json dosyasından veriyi okuma
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                database = data;
+                renderList(database);
+            });
+
+        const searchInput = document.getElementById('searchInput');
+        const resultsDiv = document.getElementById('results');
+
+        // Arama Fonksiyonu
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toUpperCase();
+            const filtered = database.filter(item => 
+                item.code.includes(term) || item.description.toUpperCase().includes(term)
+            );
+            renderList(filtered);
+        });
+
+        function renderList(items) {
+            resultsDiv.innerHTML = items.map(item => `
+                <div class="card">
+                    <div class="code">${item.code}</div>
+                    <div class="desc">${item.description}</div>
+                    <div class="solution">💡 Çözüm: ${item.solution}</div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>
