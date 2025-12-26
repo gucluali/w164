@@ -36,6 +36,18 @@
     "category": "Şanzıman"
   },
   {
+    "code": "P0722",
+    "description": "Çıkış Hız Sensörü Sinyal Yok",
+    "solution": "Şanzıman kendini korumaya alır, vites değiştirmez. 7G-Tronic şanzıman beyni (iletken plaka) üzerindeki hız sensörü bozulmuştur.",
+    "category": "Şanzıman"
+  },
+  {
+    "code": "P242F",
+    "description": "Dizel Partikül Filtresi (DPF) Tıkanıklığı - Kül Birikimi",
+    "solution": "CDI (Dizel) motorlarda görülür. Araç uzun yola çıkarılarak rejenerasyon yapılmalı veya servis cihazıyla zorla rejenerasyon başlatılmalıdır.",
+    "category": "Egzoz (Dizel)"
+  },
+  {
     "code": "9006",
     "description": "SRS Kontrol Ünitesi Düşük Voltaj",
     "solution": "Genellikle akü zayıfladığında veya koltuk altındaki sarı SRS soketlerinde temassızlık olduğunda yanar.",
@@ -58,5 +70,17 @@
     "description": "ISM (Intelligent Servo Module) Mekanik Arıza",
     "solution": "Araç 'P' (Park) modundan çıkmaz veya vitese geçmez. Şanzıman yanındaki ISM modülü arızalıdır. Değişim ve kodlama gerekir.",
     "category": "Şanzıman"
+  },
+  {
+    "code": "B1100",
+    "description": "AAC (Klima) Kontrol Modülü İletişim Hatası",
+    "solution": "Klima paneli çalışmıyorsa sigortası kontrol edilmeli. CAN-Bus hattında kopukluk olabilir.",
+    "category": "Klima / Konfor"
+  },
+  {
+    "code": "P0087",
+    "description": "Yakıt Yolu/Sistem Basıncı - Çok Düşük",
+    "solution": "Dizel araçlarda yüksek basınç pompası veya enjektör geri dönüşlerinde kaçak olabilir. Yakıt filtresi tıkanıklığı da kontrol edilmelidir.",
+    "category": "Motor (Dizel)"
   }
 ]
