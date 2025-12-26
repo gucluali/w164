@@ -36,42 +36,6 @@
         th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
         th { background: #eee; font-weight: bold; color: #444; }
 
-        /* VIDEO GALLERY (Yeni Teknoloji) */
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            background-color: #000;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-        .video-wrapper img {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-        .video-wrapper:hover img { opacity: 0.5; }
-        .play-btn {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 50px; color: white;
-            text-shadow: 0 0 10px rgba(0,0,0,0.5);
-            pointer-events: none;
-        }
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            border: 0;
-        }
-
         /* LINKS */
         a { color: var(--mb-blue); text-decoration: none; font-weight: bold; }
         a:hover { text-decoration: underline; }
@@ -89,7 +53,6 @@
 
     <div class="nav-bar">
         <button class="nav-btn active" onclick="openTab(event, 'codes')">Arıza Kodları</button>
-        <button class="nav-btn" onclick="openTab(event, 'tv')">W164 TV</button>
         <button class="nav-btn" onclick="openTab(event, 'specs')">Sıvı & Bakım</button>
         <button class="nav-btn" onclick="openTab(event, 'reset')">Sıfırlama</button>
         <button class="nav-btn" onclick="openTab(event, 'fuses')">Sigortalar</button>
@@ -102,51 +65,6 @@
             <h2>OBD & Hata Kodu Arama</h2>
             <input type="text" id="searchInput" class="search-box" placeholder="Hata kodu veya parça ara (Örn: P0300, Enjektör)...">
             <div id="results"></div>
-        </div>
-
-        <div id="tv" class="tab-content">
-            <h2>Tamir ve Bakım Videoları</h2>
-            <p style="font-size:0.9rem; color:#666;">Videoları izlemek için üzerine tıklayın.</p>
-
-            <div class="card">
-                <div class="desc">🛠️ Servis Işığı Sıfırlama (Assyst Plus)</div>
-                <div class="video-wrapper" onclick="loadVideo(this, 'IpQ7z-w_3M4')">
-                    <img src="https://img.youtube.com/vi/IpQ7z-w_3M4/hqdefault.jpg" alt="Video Kapak">
-                    <div class="play-btn">▶</div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="desc">⚠️ Arka SAM Beyni Su Alma Sorunu</div>
-                <div class="video-wrapper" onclick="loadVideo(this, 'eX5t3c5_wFo')">
-                    <img src="https://img.youtube.com/vi/eX5t3c5_wFo/hqdefault.jpg" alt="Video Kapak">
-                    <div class="play-btn">▶</div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="desc">🌡️ Klima Paneli Gizli Menü</div>
-                <div class="video-wrapper" onclick="loadVideo(this, '2K8AF-d_H-A')">
-                    <img src="https://img.youtube.com/vi/2K8AF-d_H-A/hqdefault.jpg" alt="Video Kapak">
-                    <div class="play-btn">▶</div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="desc">⚙️ Airmatic Kompresör Değişimi</div>
-                <div class="video-wrapper" onclick="loadVideo(this, 'C6q55X-EiwQ')">
-                    <img src="https://img.youtube.com/vi/C6q55X-EiwQ/hqdefault.jpg" alt="Video Kapak">
-                    <div class="play-btn">▶</div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="desc">🛢️ OM642 Yağ Soğutucu (Oil Cooler) Tamiri</div>
-                <div class="video-wrapper" onclick="loadVideo(this, '8nvzOq4eKqU')">
-                    <img src="https://img.youtube.com/vi/8nvzOq4eKqU/hqdefault.jpg" alt="Video Kapak">
-                    <div class="play-btn">▶</div>
-                </div>
-            </div>
         </div>
 
         <div id="specs" class="tab-content">
@@ -220,7 +138,7 @@
                     <strong>📞 Tel:</strong> <a href="tel:+905373108922">+90 537 310 89 22</a><br>
                     <br>
                     <iframe width="100%" height="250" frameborder="0" style="border:0" src="https://maps.google.com/maps?q=Premium+Servis+İstanbul+Beylikdüzü&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-                    <br><a href="https://maps.google.com/?q=Premium+Servis+İstanbul" target="_blank">➤ Haritada Yol Tarifi Al</a>
+                    <br><a href="https://maps.google.com/?q=Premium+Servis+İstanbul" target="_blank" style="color:#d32f2f; font-weight:bold;">➤ Haritada Yol Tarifi Al</a>
                 </div>
             </div>
         </div>
@@ -228,7 +146,7 @@
     </div>
 
     <script>
-        // --- VERİTABANI ---
+        // --- VERİTABANI (SAYFA İÇİNE GÖMÜLÜ) ---
         const database = [
           { "code": "P0300", "description": "Rastgele/Çoklu Silindirde Tekleme", "solution": "Benzinli: Buji/Bobin/MAF. Dizel: Enjektör veya Kompresyon.", "category": "Motor" },
           { "code": "P0016", "description": "Krank-Eksantrik Korelasyon Hatası (Bank 1)", "solution": "⚠️ KRİTİK: M272/M273 motorlarda Denge Mili (Balance Shaft) dişlisi aşınması.", "category": "Motor (Kronik)" },
@@ -239,7 +157,8 @@
           { "code": "C1510", "description": "Airmatic Seviye Sensörü Hatası", "solution": "Tekerlek seviye sensörü veya kablo tesisatı kopuk.", "category": "Airmatic" },
           { "code": "5503", "description": "Airmatic Kompresör Soğuma Süresi", "solution": "Sistemde kaçak var, kompresör çok çalışıyor. Körükleri ve hortumları test et.", "category": "Airmatic" },
           { "code": "P0717", "description": "Türbin Hız Sensörü Sinyal Yok", "solution": "7G-Tronic kart arızası. Kart tamiri veya değişimi.", "category": "Şanzıman" },
-          { "code": "Rear SAM", "description": "Arka Beyin Su Alma", "solution": "Stop lambası contalarından su girer. Beyin temizlenmeli, contalar değişmeli.", "category": "Elektronik" }
+          { "code": "Rear SAM", "description": "Arka Beyin Su Alma", "solution": "Stop lambası contalarından su girer. Beyin temizlenmeli, contalar değişmeli.", "category": "Elektronik" },
+          { "code": "P2047", "description": "AdBlue Enjektör Devresi Açık", "solution": "AdBlue enjektörü kristalleşmiş veya bozuk. Temizlik veya değişim.", "category": "Egzoz" }
         ];
 
         window.onload = function() { renderList(database); };
@@ -253,11 +172,6 @@
             for (i = 0; i < btn.length; i++) { btn[i].className = btn[i].className.replace(" active", ""); }
             document.getElementById(tabName).style.display = "block";
             if(evt) evt.currentTarget.className += " active";
-        }
-
-        // VİDEO YÜKLEME FONKSİYONU (TIKLAYINCA AÇILIR)
-        function loadVideo(wrapper, videoId) {
-            wrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
         }
 
         // ARAMA
