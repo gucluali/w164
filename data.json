@@ -1,0 +1,14 @@
+[
+  {
+    "code": "P0300",
+    "description": "Rastgele/Çoklu Silindir Tekleme Tespit Edildi",
+    "solution": "Bujileri, ateşleme bobinlerini ve yakıt enjektörlerini kontrol edin. Hava kaçaklarına bakın.",
+    "category": "Motor"
+  },
+  {
+    "code": "P0171",
+    "description": "Sistem Çok Fakir (Bank 1)",
+    "solution": "MAF sensörünü temizleyin, vakum kaçaklarını kontrol edin, O2 sensörüne bakın.",
+    "category": "Yakıt Sistemi"
+  }
+]
